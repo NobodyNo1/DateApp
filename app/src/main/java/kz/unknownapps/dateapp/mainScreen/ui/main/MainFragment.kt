@@ -1,11 +1,11 @@
 package kz.unknownapps.dateapp.mainScreen.ui.main
 
-import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation.findNavController
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -18,7 +18,6 @@ import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.MapsInitializer
 import com.google.android.gms.maps.MapView
 import com.google.android.gms.maps.model.Marker
-import kz.unknownapps.dateapp.R.id.container
 
 
 
@@ -72,6 +71,10 @@ class MainFragment : Fragment() {
 //                            .navigate(R.id.detailFragment)
 //                }
                 val direction = MainFragmentDirections.ActionMainFragmentToDetailFragment("1")
+
+                activity?.let {
+                    findNavController(it,R.id.container).navigate(direction);
+                }
             }
         }
 
